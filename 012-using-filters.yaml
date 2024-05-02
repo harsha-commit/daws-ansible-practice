@@ -52,14 +52,21 @@
       ansible.builtin.debug:
         msg: "Maximum element: {{numbers | max}}, Minimum element: {{numbers | min}}"
 
-- name: Using filters to convert dictionary to items (List of key-values)
+- name: Using filters to convert dictionary to items (List of key-values) and vice-versa
   hosts: web
   vars:
-    details:
+    details_as_dict:
       trainer: Siva Kumar
       course: DevOps in Telugu
       duration: 120
+    details_as_list:
+      - { "key": "trainer", "value": "Siva Kumar" }
+      - { "key": "course", "value": "DevOps in Telugu" }
+      - { "key": "duration", "value": 120 }
   tasks:
     - name: "Convert dictionary to items"
       ansible.builtin.debug:
-        msg: "Items: {{details | dict2items}}"
+        msg: "Items: {{details_as_list | dict2items}}"
+    - name: "Convert items to dictionary"
+      ansible.builtin.debug:
+        msg: "Items: {{details_as_list | items2dict}}"
