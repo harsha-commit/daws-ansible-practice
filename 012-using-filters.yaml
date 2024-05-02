@@ -4,6 +4,7 @@
   vars_prompt:
     name: INPUT_STRING
     prompt: "Enter any number"
+    private: no
   tasks:
     - name: "Convert prompt string to integer and compare"
       ansible.builtin.debug:
