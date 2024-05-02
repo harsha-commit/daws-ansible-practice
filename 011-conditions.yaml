@@ -5,7 +5,11 @@
     - name: "Print details of expense user"
       ansible.builtin.command: id expense
       ignore_errors: true # Intentional errors
-      register: output
-    - name: "Create expense user if not exists"
+      register: ID_EXPENSE_OUTPUT
+    - name: "Read id expense output"
       ansible.builtin.debug:
-        msg: "{{output}}"
+        msg: "{{ID_EXPENSE_OUTPUT}}"
+    - name: "Create expense user if not exists"
+      ansible.builtin.command: useradd command
+      when: ID_EXPENSE_OUTPUT.rc != 0 # rc works similar to exit status, 0 => success, 1 => failure
+
