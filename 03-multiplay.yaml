@@ -5,6 +5,7 @@
     - name: Play One and Task One
       ansible.builtin.debug:
         msg: "Hello from Play One and Task One"
+
     - name: Play One and Task Two
       ansible.builtin.debug:
         msg: "Hello from Play One and Task Two"
@@ -15,6 +16,7 @@
     - name: Play Two and Task One
       ansible.builtin.debug:
         msg: "Hello from Play One and Task One"
+
     - name: Play Two and Task Two
       ansible.builtin.debug:
         msg: "Hello from Play Two and Task Two"
