@@ -1,10 +1,18 @@
+# ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 04-vars.yaml
 - name: vars
   hosts: web
-  vars:
+  vars: # Play level vars
     trainer: Siva Kumar
-    course: DevOps
+    course: DevOps in Telugu
     duration: 120
   tasks:
-    - name: Variables using vars
+    - name: Variables using Play level vars
+      ansible.builtin.debug:
+        msg: "We are learning {{course}} from {{trainer}} of {{duration}} hours"
+    - name: Variables using Task level vars
+      vars: # Task level vars
+        course: DevOps in English
+        trainer: Raghu Kumar
+        duration: 110
       ansible.builtin.debug:
         msg: "We are learning {{course}} from {{trainer}} of {{duration}} hours"
