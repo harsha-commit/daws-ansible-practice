@@ -2,8 +2,8 @@
 - name: vars_file
   hosts: web
   vars_files:
-  - variables.yaml
+    - variables.yaml
   tasks:
-  - name: Variables using Play level vars
+    - name: Variables using Play level vars
       ansible.builtin.debug:
         msg: "We are learning {{course}} from {{trainer}} of {{duration}} hours"
