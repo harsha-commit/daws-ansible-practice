@@ -9,11 +9,11 @@
     - name: "Convert prompt string to integer and compare"
       ansible.builtin.debug:
         msg: "Number is greater than 10"
-      when: INPUT_STRING | int > 10
+      when: INPUT_STRING | int > 10 # incorrect strings as converted to 0
     - name: "Convert prompt string to integer and compare"
       ansible.builtin.debug:
         msg: "Number is less than or equal to 10"
-      when: INPUT_STRING | int <= 10
+      when: INPUT_STRING | int <= 10 # incorrect strings as converted to 0
 
 - name: Using filters to provide default text
   hosts: web
@@ -22,7 +22,7 @@
       ansible.builtin.debug:
         msg: "Courses: {{courses | default('No courses available')}}"
 
-- name: Using filters to convert text to uppercase
+- name: Using filters to convert text to different case
   hosts: web
   vars:
     USERNAME: Harsha Vardhan
@@ -30,12 +30,6 @@
     - name: "Convert text to uppercase"
       ansible.builtin.debug:
         msg: "Name: {{USERNAME | upper}}"
-
-- name: Using filters to convert text to lowercase
-  hosts: web
-  vars:
-    USERNAME: HARSHA VARDHAN
-  tasks:
     - name: "Convert text to lowercase"
       ansible.builtin.debug:
         msg: "Name: {{USERNAME | lower}}"
