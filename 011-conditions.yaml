@@ -11,6 +11,6 @@
       ansible.builtin.debug:
         msg: "{{ID_EXPENSE_OUTPUT}}"
     - name: "Create expense user if not exists"
-      ansible.builtin.command: useradd command
+      ansible.builtin.command: useradd expense
       when: ID_EXPENSE_OUTPUT.rc != 0 # rc works similar to exit status, 0 => success, 1 => failure
 
