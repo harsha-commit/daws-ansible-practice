@@ -20,7 +20,7 @@
   tasks:
     - name: "Provide default text"
       ansible.builtin.debug:
-        msg: "Courses: {{course | default('No courses available')}}"
+        msg: "Courses: {{courses | default('No courses available')}}"
 
 - name: Using filters to convert text to uppercase
   hosts: web
