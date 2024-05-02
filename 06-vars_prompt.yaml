@@ -3,12 +3,12 @@
   hosts: web
   vars_prompt:
     - name: USERNAME
-      prompt: "Enter username:"
+      prompt: "Enter username"
       private: false # default
     - name: PASSWORD
-      prompt: "Enter password:"
+      prompt: "Enter password"
       private: true
   tasks:
     - name: Variables using vars_prompt
       ansible.builtin.debug:
-        msg: "Username: {{USERNAME}}, Password: {{}}"
+        msg: "Username: {{USERNAME}}, Password: {{PASSWORD}}"
