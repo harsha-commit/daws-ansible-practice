@@ -1,0 +1,5 @@
+- name: when
+  hosts: web
+  tasks:
+    - name: "Print details of expense user"
+      ansible.builtin.command: id expense

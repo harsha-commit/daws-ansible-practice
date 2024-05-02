@@ -1,6 +1,6 @@
 # ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 01-ping.yaml
-- name: Ping to 54.210.75.105
+- name: ping
   hosts: web
   tasks:
-    - name: Ping to a server
+    - name: Pinging to 54.210.75.105
       ansible.builtin.ping:
