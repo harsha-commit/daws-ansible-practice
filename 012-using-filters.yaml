@@ -33,3 +33,12 @@
     - name: "Convert text to lowercase"
       ansible.builtin.debug:
         msg: "Name: {{USERNAME | lower}}"
+
+- name: Using filters to get unique elements of a list
+  hosts: web
+  vars:
+    numbers: [1, 2, 2, 3, 4, 5, 5, 5, 2, 2]
+  tasks:
+    - name: "Extract unique elements from a list"
+      ansible.builtin.debug:
+        msg: "Unique Elements: {{numbers | unique}}"
