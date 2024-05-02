@@ -69,4 +69,4 @@
         msg: "Items: {{details_as_dict | dict2items}}"
     - name: "Convert items to dictionary"
       ansible.builtin.debug:
-        msg: "Items: {{details_as_list | items2dict}}"
+        msg: "Dictionary: {{details_as_list | items2dict}}"
