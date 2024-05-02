@@ -1,0 +1,14 @@
+# ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 06-vars_prompt.yaml
+- name: vars_file
+  hosts: web
+  vars_prompt:
+    - name: USERNAME
+      prompt: "Enter username:"
+      private: false # default
+    - name: PASSWORD
+      prompt: "Enter password"
+      private: true
+  tasks:
+    - name: Variables using vars_prompt
+      ansible.builtin.debug:
+        msg: "Username: {{USERNAME}}, Password: {{}}"
