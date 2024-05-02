@@ -4,3 +4,8 @@
   tasks:
     - name: "Print details of expense user"
       ansible.builtin.command: id expense
+      ignore_errors: true # Intentional errors
+      register: output
+    - name: "Create expense user if not exists"
+      ansible.builtin.debug:
+        msg: "{{output}}"
