@@ -1,8 +1,8 @@
-# ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 08-vars-from-args.yaml
+# ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 -e course=DevOps 08-vars-from-args.yaml
 - name: vars-from-args
   hosts: web
   # NO MENTION NEEDED
   tasks:
     - name: Variables from args
       ansible.builtin.debug:
-        msg: "We are learning {{course}} from {{trainer}} of {{duration}} hours"
+        msg: "We are learning {{course}}"
