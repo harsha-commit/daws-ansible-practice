@@ -1,5 +1,5 @@
 # ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 012-using-filters.yaml
-- name: Using filters
+- name: Using filters to convert string to integer
   hosts: web
   vars_prompt:
     name: INPUT_STRING
@@ -14,3 +14,28 @@
       ansible.builtin.debug:
         msg: "Number is less than or equal to 10"
       when: INPUT_STRING | int <= 10
+
+- name: Using filters to provide default text
+  hosts: web
+  tasks:
+    - name: "Provide default text"
+      ansible.builtin.debug:
+        msg: "Courses: {{course | default('No courses available')}}"
+
+- name: Using filters to convert text to uppercase
+  hosts: web
+  vars:
+    USERNAME: Harsha Vardhan
+  tasks:
+    - name: "Convert text to uppercase"
+      ansible.builtin.debug:
+        msg: "Name: {{USERNAME | upper}}"
+
+- name: Using filters to convert text to lowercase
+  hosts: web
+  vars:
+    USERNAME: HARSHA VARDHAN
+  tasks:
+    - name: "Convert text to lowercase"
+      ansible.builtin.debug:
+        msg: "Name: {{USERNAME | lower}}"
