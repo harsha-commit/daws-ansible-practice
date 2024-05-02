@@ -6,7 +6,7 @@
       prompt: "Enter username:"
       private: false # default
     - name: PASSWORD
-      prompt: "Enter password"
+      prompt: "Enter password:"
       private: true
   tasks:
     - name: Variables using vars_prompt
