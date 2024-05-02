@@ -10,7 +10,7 @@
       ansible.builtin.debug:
         msg: "We are learning {{course}} from {{trainer}} of {{duration}} hours"
     - name: Variables using Task level vars
-      vars: # Task level vars
+      vars: # Task level vars (OVERRIDES Play level vars)
         course: DevOps in English
         trainer: Raghu Kumar
         duration: 110
