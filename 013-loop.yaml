@@ -1,0 +1,12 @@
+# ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 013-loop.yaml
+- name: Using loop to install packages
+  hosts: web
+  tasks:
+    - name: "Install multiple packages"
+      ansible.builtin.dnf:
+        name: { { item } }
+        state: installed
+      loop:
+        - mysql
+        - nodejs
+        - nginx
