@@ -16,7 +16,7 @@
   hosts: web
   become: yes
   tasks:
-    - name: "Install multiple packages"
+    - name: "Install and Remove multiple packages"
       ansible.builtin.dnf:
         name: "{{item.name}}"
         state: "{{item.state}}"
