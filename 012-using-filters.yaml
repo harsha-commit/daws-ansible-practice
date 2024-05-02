@@ -8,11 +8,11 @@
   tasks:
     - name: "Convert prompt string to integer and compare"
       ansible.builtin.debug:
-        msg: "Number is greater than 10"
+        msg: "Number {{INPUT_STRING}} is greater than 10"
       when: INPUT_STRING | int > 10 # incorrect strings as converted to 0
     - name: "Convert prompt string to integer and compare"
       ansible.builtin.debug:
-        msg: "Number is less than or equal to 10"
+        msg: "Number {{INPUT_STRING}} is less than or equal to 10"
       when: INPUT_STRING | int <= 10 # incorrect strings as converted to 0
 
 - name: Using filters to provide default text
@@ -39,6 +39,15 @@
   vars:
     numbers: [1, 2, 2, 3, 4, 5, 5, 5, 2, 2]
   tasks:
-    - name: "Extract unique elements from a list"
+    - name: "Extract list of unique elements from a list"
       ansible.builtin.debug:
         msg: "Unique Elements: {{numbers | unique}}"
+
+- name: Using filters to get maximum and minimum of a list
+  hosts: web
+  vars:
+    numbers: [1, 2, 2, 3, 4, 5, 5, 5, 2, 2]
+  tasks:
+    - name: "Extract maximum and minimum from a list"
+      ansible.builtin.debug:
+        msg: "Maximum element: {{numbers | max}}, Minimum element: {{numbers | min}}"
