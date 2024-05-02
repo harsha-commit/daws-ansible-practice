@@ -11,3 +11,16 @@
         - mysql
         - nodejs
         - nginx
+
+- name: Using loop to install and remove packages
+  hosts: web
+  become: yes
+  tasks:
+    - name: "Install multiple packages"
+      ansible.builtin.dnf:
+        name: "{{item.name}}"
+        state: "{{item.state}}"
+      loop:
+        - { name: mysql, state: installed }
+        - { name: nodejs, state: absent }
+        - { name: nginx, state: absent }
