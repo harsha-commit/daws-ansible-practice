@@ -1,0 +1,14 @@
+- name: Using filters
+  hosts: web
+  vars_prompt:
+    name: INPUT_STRING
+    prompt: "Enter any number"
+  tasks:
+    - name: "Convert prompt string to integer and compare"
+      ansible.builtin.debug:
+        msg: "Number is greater than 10"
+        when: INPUT_STRING | int > 10
+    - name: "Convert prompt string to integer and compare"
+      ansible.builtin.debug:
+        msg: "Number is less than or equal to 10"
+        when: INPUT_STRING | int <= 10

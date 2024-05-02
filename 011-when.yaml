@@ -1,4 +1,4 @@
-# ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 011-conditions.yaml
+# ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 011-when.yaml
 - name: when
   hosts: web
   become: yes
