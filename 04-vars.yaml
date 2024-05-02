@@ -1,10 +1,10 @@
-- name: Using vars
+- name: Variables using vars
   hosts: web
   vars:
     trainer: Siva Kumar
     course: DevOps
     duration: 120
   tasks:
-    - name: Using variables by vars
+    - name: vars
       ansible.builtin.debug:
         msg: "We are learning {{course}} from {{trainer}} of {{duration}} hours"
