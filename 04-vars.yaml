@@ -1,0 +1,10 @@
+- name:
+  hosts: web
+  vars:
+    trainer: Siva Kumar
+    course: DevOps
+    duration: 120
+  tasks:
+    - name: Using variables by vars
+      ansible.builtin.debug:
+        msg: "We are learning {{course}} from {{trainer}} of {{duration}} hours"
